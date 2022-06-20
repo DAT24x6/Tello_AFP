@@ -15,7 +15,7 @@ root = Tk()
 root.title("Tello Terminal")
 root.geometry("256x144")
 
-label = ttk.Label(root, text=u"--Telloを接続してから実行すること！--")
+label = ttk.Label(root, text = u"--Telloを接続してから実行すること！--")
 
 button_01 = ttk.Button(
     root,
@@ -29,7 +29,7 @@ button_02 = ttk.Button(
     command = endapp
 )
 
-version = ttk.Label(root, text="Build:2022/06/14")
+version = ttk.Label(root, text = "Ver 0.0.1")
 
 
 
