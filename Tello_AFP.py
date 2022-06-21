@@ -11,7 +11,10 @@ socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 address = ('192.168.10.1' , 8889)
 
 
-#自動飛行
+#制御系
+def endApp():
+    sys.exit()
+
 def start():
     socket.sendto("command".encode("UTF-8"), address)
 
@@ -39,7 +42,7 @@ root =tk.Tk()
 root.title("Tello AFP")
 #root.geometry("256x256")
 
-state = "Stand by"
+state = "Waiting"
 
 label = ttk.Label(root, text= u"--ボタンを押すとすぐに実行されます--")
 status = ttk.Label(root, text = f"Status:[{state}]")
@@ -47,7 +50,7 @@ status = ttk.Label(root, text = f"Status:[{state}]")
 button_01  = ttk.Button(
     root,
     text = "起動",
-    command = start,
+    command = lambda:[start()],
     state = "Ready"
 )
 
@@ -69,7 +72,13 @@ button_04 = ttk.Button(
     command = flip_front
 )
 
-version = ttk.Label(root, text = "Ver 0.0.2")
+button_05 = ttk.Button(
+    root,
+    text = "終了",
+    command = endApp
+)
+
+version = ttk.Label(root, text = "Ver 0.2.0")
 
 
 label.pack()
@@ -78,7 +87,8 @@ button_01.pack()
 button_02.pack()
 button_03.pack()
 button_04.pack()
-version.pack()
+button_05.pack()
+version.pack(side=tk.RIGHT)
 
 root.mainloop()
 

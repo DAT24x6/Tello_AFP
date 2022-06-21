@@ -1,6 +1,6 @@
 import sys
 import subprocess
-from tkinter import *
+import tkinter as tk
 from tkinter import ttk
 import tello_state
 
@@ -11,7 +11,7 @@ def status():
 def endapp():
     sys.exit()
 
-root = Tk()
+root = tk.Tk()
 root.title("Tello Terminal")
 root.geometry("256x144")
 
@@ -29,13 +29,13 @@ button_02 = ttk.Button(
     command = endapp
 )
 
-version = ttk.Label(root, text = "Ver 0.0.1")
+version = ttk.Label(root, text = "Ver 0.1.0")
 
 
 
 label.pack()
 button_01.pack()
 button_02.pack()
-version.pack(side=RIGHT)
+version.pack(side=tk.RIGHT)
 
 root.mainloop()
