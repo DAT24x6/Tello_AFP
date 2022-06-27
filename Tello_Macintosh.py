@@ -12,9 +12,9 @@ def endapp():
 
 root = tk.Tk()
 root.title("Tello Terminal for mac")
-root.geometry("256x144")
+#root.geometry("256x144")
 
-label = ttk.Label(root, text = u"--Telloを接続してから実行すること！--")
+label = ttk.Label(root, text = u"--Telloを接続してから実行すること--")
 
 button_01 = ttk.Button(
     root,
