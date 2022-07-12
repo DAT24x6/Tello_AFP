@@ -21,7 +21,7 @@ def camera():
 
     while(True):
         ret, frame = capture.read()
-        resize_frame = cv2.resize(frame, dsize=(640,320)) #1280x720 #640x480
+        resize_frame = cv2.resize(frame, dsize=(128,72)) #1280x720 #640x480
 
         #検出
         face = cascade.detectMultiScale(resize_frame)
@@ -31,7 +31,7 @@ def camera():
             cv2.rectangle(resize_frame, tuple(rect[0:2]),tuple(rect[0:2] + rect[2:4]), (255, 255, 255), thickness=2)
 
         #ウィンドウ表示
-        cv2.imshow("Video(640x320)",resize_frame)
+        cv2.imshow("Video(128x72)",resize_frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -164,7 +164,7 @@ button_10 = ttk.Button(
     command = endApp
 )
 
-version = ttk.Label(root, text = "Ver 0.3.0")
+version = ttk.Label(root, text = "Ver 0.3.1(β)")
 
 
 label.pack()
