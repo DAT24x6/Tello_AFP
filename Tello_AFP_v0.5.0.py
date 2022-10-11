@@ -12,29 +12,9 @@ socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 address = ("192.168.10.1", 8889)
 
 
-#映像受信
+#subprocess起動
 def camera():
-    socket.sendto("streamon".encode("UTF-8"), address)
-    cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt.xml")
-    #capture = cv2.VideoCapture("udp://0.0.0.0:11111?overrun_nonfatal=1") #UDP受け取り用
-    capture = cv2.VideoCapture(0) #パソコン内蔵カメラ
-
-    while(True):
-        ret, frame = capture.read()
-        resize_frame = cv2.resize(frame, dsize=(128,72)) #1280x720 #640x480
-
-        #検出
-        face = cascade.detectMultiScale(resize_frame)
-
-        #四角をつける
-        for rect in face:
-            cv2.rectangle(resize_frame, tuple(rect[0:2]),tuple(rect[0:2] + rect[2:4]), (255, 255, 255), thickness=2)
-
-        #ウィンドウ表示
-        cv2.imshow("Video(128x72)",resize_frame)
-
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+    subprocess.Popen(["python3", "Tello_AFP_camera_v0.1.0.py"])
             
 
 #制御系
@@ -164,7 +144,7 @@ button_10 = ttk.Button(
     command = endApp
 )
 
-version = ttk.Label(root, text = "Ver 0.3.1(β)")
+version = ttk.Label(root, text = "Ver 0.5.0")
 
 
 label.pack()
