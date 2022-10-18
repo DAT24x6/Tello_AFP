@@ -14,7 +14,7 @@ address = ("192.168.10.1", 8889)
 
 #subprocess起動
 def camera():
-    subprocess.Popen(["python3", "Tello_AFP_camera_v0.1.0.py"])
+    subprocess.Popen(["python3", "camera_v0.1.0.py"])
             
 
 #制御系
